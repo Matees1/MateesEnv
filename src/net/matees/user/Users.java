@@ -6,11 +6,25 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Users {
-    protected List<User> users;
+    protected static List<User> users;
 
-    public HashMap<>
-    public boolean checkUserExists() {
+    //This will check if the username provided is an actuall username of a user
+    public static boolean checkUsernameExists(String username) {
+        for (User user : users) {
+            if (user.getName() == username) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public static boolean checkPasswordExists(String password) {
+        for (User user : users) {
+            if (user.getPassword() == password) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public User getSpecificUser(User user) {

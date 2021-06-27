@@ -10,7 +10,15 @@ public class User {
     private String password;
     private boolean superuser;
 
-    private HashMap<String, Boolean> settings = new HashMap<String, Boolean>();
+    //Im not sure if im going to remove this in the future, but it might be useful
+    //This will be the settings for the user Example:
+    //                  "Createfile, true"
+    //Createfile is the setting, not sure if I will keep it as a string in the future.
+    //Might make it an enum
+    private HashMap<String, Boolean> settings = new HashMap<>();
+
+    //Username, Password
+    private HashMap<String, String> credentials = new HashMap<>();
 
     public User() {
 
@@ -21,6 +29,14 @@ public class User {
         this.password = password;
         this.superuser = superuser;
         this.settings = settings;
+    }
+
+    public HashMap<String, String> getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(HashMap<String, String> credentials) {
+        this.credentials = credentials;
     }
 
     public String getName() {

@@ -18,7 +18,7 @@ public class Users {
         return false;
     }
 
-    public static boolean checkPasswordExists(String password) {
+    public static boolean checkPasswordExists(String username, String password) {
         for (User user : users) {
             if (user.getPassword() == password) {
                 return true;

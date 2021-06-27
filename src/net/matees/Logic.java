@@ -14,7 +14,6 @@ public class Logic {
     public static void start() {
         //Startup logic
         started = true;
-
     }
 
     public static void stop() {
@@ -33,19 +32,28 @@ public class Logic {
     }
 
     public static User loginPrompt() {
+        //Username prompt
         Scanner usernameScanner = new Scanner(System.in);
         System.out.printf("Please enter your username in: ");
         String username = usernameScanner.next();
 
-        boolean exists = Users.checkUsernameExists(username);
+        boolean usernameExists = Users.checkUsernameExists(username);
 
         //The username is valid
-        if (!exists) {
+        if (usernameExists) {
+            //Password prompt
             Scanner passwordScanner = new Scanner(System.in);
             System.out.printf("Please enter in the password to the user " + ConsoleColors.CYAN + " " + username + ConsoleColors.RESET);
             String password = passwordScanner.next();
 
+            boolean passExists = Users.checkPasswordExists(username, password);
 
+            //If the password is valid for the account
+            if (passExists) {
+                
+            }else{
+                System.out.println("\nThe password provided does not match the username " + ConsoleColors.CYAN + username + ConsoleColors.RESET);
+            }
         }else{
             System.out.println("\nThe username provided is not valid, please retry.");
             loginPrompt();

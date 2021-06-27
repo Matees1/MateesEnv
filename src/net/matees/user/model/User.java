@@ -6,7 +6,7 @@ import java.util.HashMap;
     This class is for creating a new user
  */
 public class User {
-    private String name;
+    private String username;
     private String password;
     private boolean superuser;
 
@@ -24,11 +24,21 @@ public class User {
 
     }
 
-    public User(String name, String password, boolean superuser) {
-        this.name = name;
+    public User(String username, String password, boolean superuser) {
+        this.username = username;
+        this.password = password;
+        this.superuser = superuser;
+
+        this.credentials.put(username, password);
+    }
+
+    public User(String username, String password, boolean superuser, HashMap<String, Boolean> settings) {
+        this.username = username;
         this.password = password;
         this.superuser = superuser;
         this.settings = settings;
+
+        this.credentials.put(username, password);
     }
 
     public HashMap<String, String> getCredentials() {
@@ -40,11 +50,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public String getPassword() {

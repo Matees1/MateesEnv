@@ -19,5 +19,9 @@ public class Logic {
         while (started == true) {
             //While running logic
         }
+
+        //If the loop ends, started would be false, so therefore the
+        //kernel has stopped
+        stop();
     }
 }

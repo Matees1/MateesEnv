@@ -1,4 +1,4 @@
-package net.matees.Console;
+package net.matees.console;
 
 public class ConsoleColors {
     // Reset

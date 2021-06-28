@@ -1,6 +1,7 @@
 package net.matees;
 
 import net.matees.console.ConsoleColors;
+import net.matees.events.input.InputListener;
 import net.matees.user.model.User;
 
 import java.util.Scanner;
@@ -29,6 +30,9 @@ public class Logic {
             Scanner inputScan = new Scanner(System.in);
             cmdLine(user);
             String input = inputScan.next();
+
+            InputListener inputListener = new InputListener();
+            inputListener.addListener();
          }
 
         //If the loop ends, started would be false, so therefore the

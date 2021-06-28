@@ -29,7 +29,7 @@ public class Logic {
             Scanner inputScan = new Scanner(System.in);
             cmdLine(user);
             String input = inputScan.next();
-        }
+         }
 
         //If the loop ends, started would be false, so therefore the
         //kernel has stopped

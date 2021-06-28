@@ -4,6 +4,6 @@ public class Event implements ReceiveInput {
 
     @Override
     public void SendInput(String input) {
-        
+        System.out.println(input);
     }
 }

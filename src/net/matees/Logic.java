@@ -1,7 +1,7 @@
 package net.matees;
 
-import net.matees.console.ConsoleColors;
-import net.matees.events.input.Event;
+import net.matees.events.handling.EventListeners;
+import net.matees.events.input.InputEvent;
 import net.matees.events.input.InputListener;
 import net.matees.user.model.User;
 
@@ -14,8 +14,13 @@ public class Logic {
     private static boolean started = false;
 
     public static void start(User user) {
+
         //Startup logic
         started = true;
+
+        //Inits up the event listeners
+        EventListeners.initEvents();
+
         //Starts the kernel loop
         loop(user);
     }
@@ -30,11 +35,11 @@ public class Logic {
             //While running logic
             Scanner inputScan = new Scanner(System.in);
             cmdLine(user);
-            String input = inputScan.next();
+            String input = inputScan.nextLine();
 
-            InputListener inputListener = new InputListener();
-            inputListener.addListener(new Event());
-            inputListener.ReceiveInput(input);
+            EventListeners.getInputListener().ReceiveInput(input);
+
+            if(input.equals("exit")) started = false;
          }
 
         //If the loop ends, started would be false, so therefore the
